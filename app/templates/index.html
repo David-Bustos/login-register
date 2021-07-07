@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Index page{% endblock %}
+
+{% block script %}{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-4 offset-1">
+        <h3>Registration</h3>
+        <div class="card p-3">
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    First Name: <input type="text" class="form-control" name="fname">
+                </div>
+                <div class="mb-3">
+                    Last Name: <input type="text" class="form-control" name="lname">
+                </div>
+                <div class="mb-3">
+                    Email: <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                    Birthday: <input type="date" class="form-control" name="date">
+                </div>
+                <div class="mb-3">
+                    Password: <input type="password" class="form-control" name="pass">
+                </div>
+                <div class="mb-3">
+                    Confirm PW: <input type="password" class="form-control" name="cpass">
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-4 offset-1">
+        <h3>Login</h3>
+        <div class="card p-3">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    Email: <input type="text" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                    Password: <input type="text" class="form-control" name="pass">
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}
+
+
+
